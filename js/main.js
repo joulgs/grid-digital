@@ -1,17 +1,9 @@
 const telaAltura = window.innerHeight
 const telaLargura = window.innerWidth
 
-/******************************** */
-
-var teste = document.getElementById('teste')
-teste.innerHTML = (telaLargura*0.9)
-
-/******************************** */
-
 var altura = document.getElementById('mesaAltura')
 var largura = document.getElementById('mesaAltura')
 var quadrado = document.getElementById('mesaQuadrado')
-
 
 // var btn = document.getElementById('printNovaMesa')
 
@@ -23,39 +15,50 @@ var canvasFundo = document.getElementById("fundo"),
     ctxFundo = canvasFundo.getContext("2d")
 
 
-
 canvasFundo.width = tableWidth
 canvasFundo.height = tableHeight
 
+const fundoSelect = document.getElementById('fundos')
 
 
-/*var canvasGrid = document.getElementById("grid"),
-    ctxGrid = canvasGrid.getContext("2d")
+/******************************** */
 
-canvasGrid.width = tableWidth
-canvasGrid.height = tableHeight*/
+var teste = document.getElementById('teste')
+teste.innerHTML = (fundoSelect.value)
+
+/******************************** */
 
 
 var background = new Image()
-background.src = "./01.jpg"
+background.src = fundoSelect.value
 
 printFundo()
 
 
 btn.addEventListener("click", function(event) {
-    event.preventDefault()
+    /*event.preventDefault()
 
     tableSquare = parseInt(quadrado.value)
 
-    printTable()
+    printTable()*/
+    alert('vrau')
 })
 
+fundoSelect.addEventListener("select", function(event) {
+    alert('ululu')
+})
 
 function printFundo(){
     background.onload = function(){
         ctxFundo.drawImage(background,0,0)
     }
 }
+
+/*var canvasGrid = document.getElementById("grid"),
+    ctxGrid = canvasGrid.getContext("2d")
+
+canvasGrid.width = tableWidth
+canvasGrid.height = tableHeight*/
 
 /*function printGrid(){
     ctxGrid.beginPath()

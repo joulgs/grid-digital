@@ -17,7 +17,14 @@
             </div>
 
             <div class="col">
-                <form action="">
+                
+                    <label for="fundos">Escolha um fundo</label>
+
+                    <select class="form-select" name="fundo" id="fundos">
+                        <option value="assets/fundo/01.jpg" selected>01</option>
+                        <option value="assets/fundo/01.jpg">02</option>
+                    </select>
+                    <br>
                     <span id="teste"></span>
                     <input id="mesaAltura" type="text" class="form-control">
                     Largura:
@@ -25,8 +32,8 @@
                     Quadrado:
                     <input id="mesaQuadrado" type="text" class="form-control" value="40">
 
-                    <button id="printNovaMesa" type="submit" class="btn btn-primary mt-2"> RELOAD</button>
-                </form>
+                    <button id="printNovaMesa" class="btn btn-primary mt-2"> RELOAD</button>
+                
             </div>
         </div>
     </div>
