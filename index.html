@@ -11,8 +11,9 @@
 </head>
 <body>
             <div>
-                <canvas class="m-0" id="mapa" width="100" height="600"></canvas>
-                <canvas class="m-0" id="tabuleiro" width="100" height="600"></canvas>
+                <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
+                <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
+                <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
             </div>
 
             <div id="menu">
@@ -31,12 +32,34 @@
                     <button onclick="mapaMenosZoom()">-</button>
                     <button onclick="mapaMaisZoom()">+</button>
                     <button onclick="rotacionarMapa()"><)</button>
+
+                    <button onclick="aumentaQuadrado()">[+]</button>
+                    <button onclick="diminuirQuadrado()">[-]</button>
+                    
+                    <label for="fundos">Jogador</label>
+                    <select id="seletorJogadores" name="jogador" class="form-select" onchange="mudarJogador()">
+                    </select>
+
+                    <button onclick="jogadorParaEsquerta()">P<</button>
+                    <button onclick="jogadorParaDireita()">P></button>
+                    <button onclick="jogadorParaBaixo()">P\/</button>
+                    <button onclick="jogadorParaCima()">P/\</button>
+
+                    <label for="fundos">skin</label>
+                    <select id="seletorSkin" name="skin" class="form-select" onchange="mudarSkin()">
+                        <option value="assets/totens/01.png" selected>01</option>
+                        <option value="assets/totens/m01.png">02</option>
+                    </select>
+
+                    <button onclick="novoJogador()">P+</button>
+                    <button onclick="deletaJogador()">P-</button>
             </div>
 
     
 
-    
+    <script src="./js/main.js" ></script>
     <script src="./js/mapa.js" ></script>
     <script src="./js/tabuleiro.js" ></script>
+    <script src="./js/jogadores.js" ></script>
 </body>
 </html>

@@ -1,24 +1,39 @@
-var canvasTabuleiro = document.getElementById("tabuleiro"),
-ctxTabuleiro = canvasTabuleiro.getContext("2d")
+desenhaTabuleiro()
 
-canvasTabuleiro.width = window.innerWidth-200
-canvasTabuleiro.height = window.innerHeight
-
-ctxTabuleiro.beginPath()
-for(i = 0; i <= window.innerHeight; i=i+20)
+function desenhaTabuleiro()
 {
-    ctxTabuleiro.moveTo(i,0)
-    ctxTabuleiro.lineTo(i,window.innerHeight)    
+    ctxTabuleiro.beginPath()
+    for(x = 0; x <= larguraDaTela; x += tamanhoDoQuadrado)
+    {
+        for(y = 0; y <= alturaDaTela; y += tamanhoDoQuadrado)
+        {
+            ctxTabuleiro.strokeRect(x, y, tamanhoDoQuadrado, tamanhoDoQuadrado)
+        }
+    }
+    ctxTabuleiro.closePath()
+    ctxTabuleiro.stroke()
 }
-ctxTabuleiro.closePath()
-ctxTabuleiro.stroke()
 
-
-ctxTabuleiro.beginPath()
-for(i = 0; i <= window.innerWidth-200; i=i+20)
+function aumentaQuadrado()
 {
-    ctxTabuleiro.moveTo(0, i)
-    ctxTabuleiro.lineTo( window.innerWidth, i)    
+    limparTabuleiro()
+    tamanhoDoQuadrado += 10
+    desenhaTabuleiro()
+    limparJogadores()
+    desenhaJogadores()
 }
-ctxTabuleiro.closePath()
-ctxTabuleiro.stroke()
+
+function diminuirQuadrado()
+{
+    limparTabuleiro()
+    tamanhoDoQuadrado -= 10
+    desenhaTabuleiro()
+    limparJogadores()
+    desenhaJogadores()
+}
+
+function limparTabuleiro()
+{
+    ctxTabuleiro.clearRect(0, 0, canvasTabuleiro.width, canvasTabuleiro.height)
+}
+

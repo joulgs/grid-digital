@@ -14,7 +14,13 @@ body {
 #tabuleiro {
     border:1px solid black;
 
-    background-color: rgba(255, 0, 255, 0.1);
+    position: absolute;
+}
+
+#jogadores {
+    border:1px solid black;
+
+    background-color: rgba(0, 0, 0, 0.1);
 
     position: relative;
 }
