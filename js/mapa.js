@@ -1,4 +1,4 @@
-var canvas = document.getElementById("fundo"),
+var canvas = document.getElementById("mapa"),
 ctx = canvas.getContext("2d")
 
 canvas.width = window.innerWidth-200
