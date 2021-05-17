@@ -15,6 +15,8 @@ https://www.deviantart.com/ktechnicolour/art/Kian-Roll-20-Token-545614962
 
 
 
+https://pt.stackoverflow.com/questions/300375/como-obter-x-e-y-do-clique-em-canvas
+
 
  - tokens = peças
 

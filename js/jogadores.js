@@ -1,4 +1,5 @@
 var jogadorSelecionado = 0
+var podeMoveComMouse = false
 
 var jogadores = []
 var jogadoresX = []
@@ -6,6 +7,7 @@ var jogadoresY = []
 var jogadoresNome = []
 
 desenhaJogadores()
+canvasJodadores.addEventListener('click', pegaPosicaoDoClique, true);
 
 function desenhaJogadores()
 {
@@ -77,6 +79,9 @@ function mudarSkin()
 
 function novoJogador()
 {
+    podeMoveComMouse = false
+    document.getElementById("checkPodeMoverComMouse").checked = false
+
     var nome = prompt('NOME:')
     jogadores.push("assets/totens/01.png")
     jogadoresX.push(0)
@@ -126,4 +131,59 @@ function criaSeletorDeJogador()
 function limparJogadores()
 {
     ctxJogadoes.clearRect(0, 0, canvasJodadores.width, canvasJodadores.height)
+}
+
+function pegaPosicaoDoClique(evt){
+   
+    var posX = parseInt(evt.clientX/tamanhoDoQuadrado)
+    var posY = parseInt(evt.clientY/tamanhoDoQuadrado)
+    
+    console.clear();
+    selecionaJogadorPorPosicao(posX,posY)
+}
+
+function selecionaJogadorPorPosicao(x,y)
+{
+    var temOutroJogadorNaPosicao = verificaSeTemPersonagemNaPosicao(x,y)
+    if(podeMoveComMouse && temOutroJogadorNaPosicao)
+    {
+        jogadoresX[jogadorSelecionado] = x
+        jogadoresY[jogadorSelecionado] = y
+        desenhaJogadores()
+    } else {
+        for(i=0; i<= jogadores.length; i++)
+        {
+            if(jogadoresX[i]==x && jogadoresY[i]==y)
+            {
+                jogadorSelecionado = i
+                document.getElementById("seletorJogadores").value = i
+                document.getElementById("checkPodeMoverComMouse").checked = true
+                podeMoveComMouse = true
+                desenhaJogadores()
+            }
+        }
+    }
+}
+
+function verificaSeTemPersonagemNaPosicao(x,y)
+{
+    for(i=0; i<= jogadores.length; i++)
+    {
+        if(jogadoresX[i]==x && jogadoresY[i]==y)
+        {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+function permiteMoverComMouse()
+{
+    var checkBox = document.getElementById("checkPodeMoverComMouse")
+    if (checkBox.checked == true){
+        podeMoveComMouse = true
+    } else {
+        podeMoveComMouse = false
+    }
 }
