@@ -20,6 +20,7 @@ https://pt.stackoverflow.com/questions/300375/como-obter-x-e-y-do-clique-em-canv
 
 https://pt.stackoverflow.com/questions/83866/comunica%C3%A7%C3%A3o-entre-p%C3%A1ginas-via-javascript
 
+https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 
  - tokens = peças
 
