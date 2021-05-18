@@ -18,6 +18,9 @@ https://www.deviantart.com/ktechnicolour/art/Kian-Roll-20-Token-545614962
 https://pt.stackoverflow.com/questions/300375/como-obter-x-e-y-do-clique-em-canvas
 
 
+https://pt.stackoverflow.com/questions/83866/comunica%C3%A7%C3%A3o-entre-p%C3%A1ginas-via-javascript
+
+
  - tokens = peças
 
  - grid = grid
