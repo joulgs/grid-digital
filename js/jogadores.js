@@ -63,7 +63,7 @@ function jogadorParaCima()
     desenhaJogadores()
 }
 
-function mudarJogador()
+function selecionaJogador()
 {
     jogadorSelecionado = document.getElementById("seletorJogadores").value;
     limparJogadores()
@@ -112,6 +112,7 @@ function deletaJogador()
 
     limparJogadores()
     desenhaJogadores()
+    podeMoverComMouse(false)
 }
 
 function criaSeletorDeJogador()
@@ -144,12 +145,12 @@ function pegaPosicaoDoClique(evt){
 
 function selecionaJogadorPorPosicao(x,y)
 {
-    var temOutroJogadorNaPosicao = verificaSeTemPersonagemNaPosicao(x,y)
-    if(podeMoveComMouse && temOutroJogadorNaPosicao)
+    if(podeMoveComMouse)
     {
         jogadoresX[jogadorSelecionado] = x
         jogadoresY[jogadorSelecionado] = y
         desenhaJogadores()
+        podeMoverComMouse(false)
     } else {
         for(i=0; i<= jogadores.length; i++)
         {
@@ -157,25 +158,17 @@ function selecionaJogadorPorPosicao(x,y)
             {
                 jogadorSelecionado = i
                 document.getElementById("seletorJogadores").value = i
-                document.getElementById("checkPodeMoverComMouse").checked = true
-                podeMoveComMouse = true
+                podeMoverComMouse(true)
                 desenhaJogadores()
             }
         }
     }
 }
 
-function verificaSeTemPersonagemNaPosicao(x,y)
+function podeMoverComMouse(bool = false)
 {
-    for(i=0; i<= jogadores.length; i++)
-    {
-        if(jogadoresX[i]==x && jogadoresY[i]==y)
-        {
-            return true
-        } else {
-            return false
-        }
-    }
+    document.getElementById("checkPodeMoverComMouse").checked = bool
+    podeMoveComMouse = bool
 }
 
 function permiteMoverComMouse()
