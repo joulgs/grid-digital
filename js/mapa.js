@@ -1,4 +1,5 @@
-if (!localStorage.getItem('mapa')){ localStorage.setItem("mapa", document.getElementById('seletorDeMapas').value) }
+//if (!localStorage.getItem('mapa')){ localStorage.setItem("mapa", document.getElementById('seletorDeMapas').value) }
+var mapa = document.getElementById('seletorDeMapas').value
 var mapaX = 0
 var mapaY = 0
 var mapaAltura = null
@@ -12,15 +13,18 @@ var posicaoMapa = PARA_CIMA
 
 desenhaMapaPrimeiraVez()
 
+/*
 window.addEventListener('storage', function(e) {
     desenhaMapaPrimeiraVez()
 })
+*/
 
 function desenhaMapaPrimeiraVez()
 {
     limparMapa()
     var image = new Image()
-    image.src = localStorage.getItem("mapa")
+    //image.src = localStorage.getItem("mapa")
+    image.src = mapa
     image.onload = function()
     {
         mapaAltura = this.height
@@ -121,7 +125,8 @@ function rotacionarMapa()
 function mudarMapa()
 {
     posicaoMapa = PARA_CIMA
-    localStorage.setItem("mapa", document.getElementById("seletorDeMapas").value);
+    //localStorage.setItem("mapa", document.getElementById("seletorDeMapas").value)
+    mapa = document.getElementById("seletorDeMapas").value
     desenhaMapaPrimeiraVez()
 }
 
