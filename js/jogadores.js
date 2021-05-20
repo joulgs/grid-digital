@@ -11,13 +11,16 @@ canvasJodadores.addEventListener('click', pegaPosicaoDoClique, true);
 
 function desenhaJogadores()
 {
-    for(j=0; j<= jogadores.length; j++)
+    if(jogadores.length != 0)
     {
-        if(jogadorSelecionado == j)
+        for(j=0; j<= jogadores.length; j++)
         {
-            desenhaJogador(jogadores[j], jogadoresX[j], jogadoresY[j], true)
-        } else {
-            desenhaJogador(jogadores[j], jogadoresX[j], jogadoresY[j], false)
+            if(jogadorSelecionado == j)
+            {
+                desenhaJogador(jogadores[j], jogadoresX[j], jogadoresY[j], true)
+            } else {
+                desenhaJogador(jogadores[j], jogadoresX[j], jogadoresY[j], false)
+            }
         }
     }
 }

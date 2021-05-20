@@ -43,7 +43,7 @@ function desenhaMapaPrimeiraVez()
         mapa: mapa,
     };
 
-    socketMapa.send(JSON.stringify(data));
+    //socketMapa.send(JSON.stringify(data));
 }
 
 function desenhaMapa()

@@ -9,7 +9,8 @@ ctxJogadoes = canvasJodadores.getContext("2d")
 
 
 var alturaDaTela = window.innerHeight
-var larguraDaTela = window.innerWidth
+var larguraDaTela = areaDoMapa.clientWidth
+
 var tamanhoDoQuadrado = 30
 
 canvasMapa.width = larguraDaTela

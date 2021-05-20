@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPJOUL | PAINEL</title>
-    
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 <body>
-            <div>
-                <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
-                <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
-                <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="areaDoMapa" class="col-9 p-0">
+                <div  style="width: 100%; height: 100%;">
+                    <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
+                    <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
+                    <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
+                </div>
             </div>
-
-            <div id="menu">
-                
+            <div class="col-3">
+                <div id="menu">
                     <label for="fundos">Escolha um fundo</label>
 
                     <select id="seletorDeMapas" name="fundo" class="form-select" onchange="mudarMapa()">
@@ -67,7 +70,13 @@
                     </p>
                     <hr>
                     <div id="chat"></div>
+                </div>
             </div>
+        </div>
+    </div>
+            
+
+                
 
     
 
@@ -76,5 +85,6 @@
     <script src="./js/mapa.js" ></script>
     <script src="./js/tabuleiro.js" ></script>
     <script src="./js/jogadores.js" ></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>
