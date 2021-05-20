@@ -1,5 +1,18 @@
-//if (!localStorage.getItem('mapa')){ localStorage.setItem("mapa", document.getElementById('seletorDeMapas').value) }
-var mapa = document.getElementById('seletorDeMapas').value
+const socketMapa = new WebSocket('ws://localhost:9990/mapa');
+
+socketMapa.addEventListener('message', function (event) {
+    const data = JSON.parse(event.data)
+    console.log(data)
+
+    if(data.evento == 'desenhaMapa')
+    {
+        console.log('Evento disparado')
+        mapa = data.mapa
+        desenhaMapa()
+    }
+})
+
+var mapa = 'assets/fundo/01.jpg'
 var mapaX = 0
 var mapaY = 0
 var mapaAltura = null
@@ -13,17 +26,10 @@ var posicaoMapa = PARA_CIMA
 
 desenhaMapaPrimeiraVez()
 
-/*
-window.addEventListener('storage', function(e) {
-    desenhaMapaPrimeiraVez()
-})
-*/
-
 function desenhaMapaPrimeiraVez()
 {
     limparMapa()
     var image = new Image()
-    //image.src = localStorage.getItem("mapa")
     image.src = mapa
     image.onload = function()
     {
@@ -31,10 +37,18 @@ function desenhaMapaPrimeiraVez()
         mapaLargura = this.width
         ctxMapa.drawImage(image,mapaX,mapaY)
     }
+
+    const data = {
+        evento: 'desenhaMapa',
+        mapa: mapa,
+    };
+
+    socketMapa.send(JSON.stringify(data));
 }
 
 function desenhaMapa()
 {
+    console.log('>> DESENHA MAPA')
     limparMapa()
     var image = new Image()
     image.src = mapa
@@ -125,7 +139,6 @@ function rotacionarMapa()
 function mudarMapa()
 {
     posicaoMapa = PARA_CIMA
-    //localStorage.setItem("mapa", document.getElementById("seletorDeMapas").value)
     mapa = document.getElementById("seletorDeMapas").value
     desenhaMapaPrimeiraVez()
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mapa;
+namespace App;
 
 use Exception;
 use SplObjectStorage;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Chat;
+namespace App;
 
 use Exception;
 use SplObjectStorage;
