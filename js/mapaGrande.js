@@ -1,3 +1,30 @@
+var canvasMapa = document.getElementById("mapa"),
+ctxMapa = canvasMapa.getContext("2d")
+
+var canvasTabuleiro = document.getElementById("tabuleiro"),
+ctxTabuleiro = canvasTabuleiro.getContext("2d")
+
+var canvasJodadores = document.getElementById("jogadores"),
+ctxJogadoes = canvasJodadores.getContext("2d")
+
+
+var alturaDaTela = window.innerHeight
+var larguraDaTela = window.innerWidth
+
+var tamanhoDoQuadrado = 30
+
+canvasMapa.width = larguraDaTela
+canvasMapa.height = alturaDaTela
+
+canvasTabuleiro.width = larguraDaTela
+canvasTabuleiro.height = alturaDaTela
+
+canvasJodadores.width = larguraDaTela
+canvasJodadores.height = alturaDaTela
+
+ctxJogadoes.fillStyle = 'rgba(255, 165, 0,0.2)'
+
+
 const socketMapa = new WebSocket('ws://localhost:9990/mapa');
 
 socketMapa.addEventListener('message', function (event) {

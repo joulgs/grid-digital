@@ -9,27 +9,14 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-            <div>
-                <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
-                <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
-                <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
-            </div>
 
-            <div hidden>
-                <p>
-                    <label for="nome">Seu nome: </label>
-                    <input id="nome" type="text" placeholder="Seu nome"/>
-                </p>
-                <p>
-                    <label for="input">Sua mensagem: </label>
-                    <input id="input" type="text" placeholder="Sua mensagem"/>
-                </p>
-                <hr>
-                <div id="chat"></div>
-            </div>
-    <script src="./js/main.js" ></script>
-    <script src="./js/chat.js" ></script>
-    <script src="./js/mapa.js" ></script>
+    <div>
+        <canvas class="m-0 p-0" id="mapa" width="200" height="200"></canvas>
+        <canvas class="m-0 p-0" id="tabuleiro" width="200" height="200"></canvas>
+        <canvas class="m-0 p-0" id="jogadores" width="200" height="200"></canvas>
+    </div>
+
+    <script src="./js/mapaGrande.js" ></script>
     <script src="./js/tabuleiro.js" ></script>
     <script src="./js/jogadores.js" ></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
