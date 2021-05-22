@@ -194,3 +194,19 @@ function permiteMoverComMouse()
         podeMoveComMouse = false
     }
 }
+
+document.querySelector('body').addEventListener('keydown', function(evt) {
+    console.log(evt.keyCode)
+    if(evt.key == 'ArrowLeft')
+        jogadorParaEsquerta()
+    
+    if(evt.key == 'ArrowUp')
+        jogadorParaCima()
+    
+    if(evt.key == 'ArrowDown')
+        jogadorParaBaixo()
+    
+    if(evt.key == 'ArrowRight')
+        jogadorParaDireita()
+        
+})
