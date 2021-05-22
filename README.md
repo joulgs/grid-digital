@@ -26,3 +26,8 @@
  - [Noções de WebStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
  - [Video Sobre WebSocket](https://www.youtube.com/watch?v=zDfM0KQ5V8o)
  - [Aplicações em tempo real com WebSocket](https://www.treinaweb.com.br/blog/aplicacoes-em-tempo-real-com-php-usando-websockets/)
+
+##### Ideias
+ - Um Mapa de Campanha ( Paise ) e varios mapas de batalha
+ - No Mapa de Campanha voce pode colocar marcadores que dão acesso aos mapas de Batalha, OU mapas de cidades
+ - Nos Mapas de Cidades Voce pode colocar os marcadores que dão acesso a mapas de casas ou dungeons etc....
