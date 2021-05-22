@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPJOUL | PAINEL</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
@@ -19,58 +20,114 @@
                     <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
                 </div>
             </div>
-            <div class="col-3">
-                <div id="menu">
-                    <label for="fundos">Escolha um fundo</label>
-
-                    <select id="seletorDeMapas" name="fundo" class="form-select" onchange="mudarMapa()">
-                        <option value="assets/fundo/01.jpg" selected>01</option>
-                        <option value="assets/fundo/02.jpg">02</option>
-                    </select>
-
-                    <button onclick="mapaParaEsquerda()"><</button>
-                    <button onclick="mapaParaDireita()">></button>
-                    <button onclick="mapaParaCima()">/\</button>
-                    <button onclick="mapaParaBaixo()">\/</button>
-                    <button onclick="mapaMenosZoom()">-</button>
-                    <button onclick="mapaMaisZoom()">+</button>
-                    <button onclick="rotacionarMapa()"><)</button>
-
-                    <button onclick="aumentaQuadrado()">[+]</button>
-                    <button onclick="diminuirQuadrado()">[-]</button>
+            <div id="menu" class="col-3">
                     
-                    <label for="fundos">Jogador</label>
-                    <select id="seletorJogadores" name="jogador" class="form-select" onchange="selecionaJogador()">
-                    </select>
+                <div class="accordion accordion-flush" id="accordionMenuDoMestre">
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuMapa" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="far fa-map m-2"></i> Mapa
+                            </button>
+                        </h2>
+                        <div id="menuMapa" class="accordion-collapse collapse" data-bs-parent="#accordionMenuDoMestre">
+                            <div class="accordion-body">
 
-                    <button onclick="jogadorParaEsquerta()">P<</button>
-                    <button onclick="jogadorParaDireita()">P></button>
-                    <button onclick="jogadorParaBaixo()">P\/</button>
-                    <button onclick="jogadorParaCima()">P/\</button>
+                                <select id="seletorDeMapas" name="fundo" class="form-select mb-2" onchange="mudarMapa()">
+                                    <option value="assets/fundo/01.jpg" selected>01</option>
+                                    <option value="assets/fundo/02.jpg">02</option>
+                                </select>
+            
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaParaEsquerda()"><i class="far fa-caret-square-left"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaParaDireita()"><i class="far fa-caret-square-right"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaParaCima()"><i class="far fa-caret-square-up"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaParaBaixo()"><i class="far fa-caret-square-down"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaMenosZoom()"><i class="far fa-minus-square"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaMaisZoom()"><i class="far fa-plus-square"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="rotacionarMapa()"><i class="fas fa-sync-alt"></i></button>
 
-                    <label for="fundos">skin</label>
-                    <select id="seletorSkin" name="skin" class="form-select" onchange="mudarSkin()">
-                        <option value="assets/totens/01.png" selected>01</option>
-                        <option value="assets/totens/m01.png">02</option>
-                    </select>
+                            </div>
+                        </div>
+                    </div>
 
-                    <button onclick="novoJogador()">P+</button>
-                    <button onclick="deletaJogador()">P-</button>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuTabuleiro" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="fas fa-chess-board m-2"></i> Tabuleiro
+                            </button>
+                        </h2>
+                        <div id="menuTabuleiro" class="accordion-collapse collapse" data-bs-parent="#accordionMenuDoMestre">
+                            <div class="accordion-body">
+                                
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="aumentaQuadrado()"><i class="fas fa-expand-arrows-alt"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="diminuirQuadrado()"><i class="fas fa-compress-arrows-alt"></i></button>
 
-                    <input id="checkPodeMoverComMouse" type="checkbox" name="checkPodeMoverComMouse" value="false" onclick="permiteMoverComMouse()">
-                    <label for="checkPodeMoverComMouse"> Pode Move Com Mouse</label><br>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p>
-                        <label for="nome">Seu nome: </label>
-                        <input id="nome" type="text" placeholder="Seu nome"/>
-                    </p>
-                    <p>
-                        <label for="input">Sua mensagem: </label>
-                        <input id="input" type="text" placeholder="Sua mensagem"/>
-                    </p>
-                    <hr>
-                    <div id="chat"></div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuJogadores" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="fas fa-chess-pawn m-2"></i> Jogador
+                            </button>
+                        </h2>
+                        <div id="menuJogadores" class="accordion-collapse collapse" data-bs-parent="#accordionMenuDoMestre">
+                            <div class="accordion-body">
+                                
+                                <select id="seletorJogadores" name="jogador" class="form-select" onchange="selecionaJogador()">
+                                </select>
+            
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="jogadorParaEsquerta()"><i class="fa fa-caret-left"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="jogadorParaDireita()"><i class="fa fa-caret-right"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="jogadorParaBaixo()"><i class="fa fa-caret-down"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="jogadorParaCima()"><i class="fa fa-caret-up"></i></button>
+            
+                                <label for="fundos">skin</label>
+                                <select id="seletorSkin" name="skin" class="form-select" onchange="mudarSkin()">
+                                    <option value="assets/totens/01.png" selected>01</option>
+                                    <option value="assets/totens/m01.png">02</option>
+                                </select>
+            
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="novoJogador()"><i class="fas fa-gamepad"></i></button>
+                                <button class="btn btn-outline-primary mr-1 mb-1" onclick="deletaJogador()"><i class="fas fa-ghost"></i></button>
+            
+                                <input id="checkPodeMoverComMouse" type="checkbox" name="checkPodeMoverComMouse" value="false" onclick="permiteMoverComMouse()">
+                                <label for="checkPodeMoverComMouse"> Pode Move Com Mouse</label><br>
+            
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuChat" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="far fa-comments m-2"></i> Chat
+                            </button>
+                        </h2>
+                        <div id="menuChat" class="accordion-collapse collapse" data-bs-parent="#accordionMenuDoMestre">
+                            <div class="accordion-body">
+                                
+                                <p>
+                                    <label for="nome">Seu nome: </label>
+                                    <input id="nome" type="text" placeholder="Seu nome"/>
+                                </p>
+                                <p>
+                                    <label for="input">Sua mensagem: </label>
+                                    <input id="input" type="text" placeholder="Sua mensagem"/>
+                                </p>
+                                <hr>
+                                <div id="chat"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                
                 </div>
+                   
+                    
             </div>
         </div>
     </div>
