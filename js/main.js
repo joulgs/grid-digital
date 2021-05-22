@@ -21,5 +21,3 @@ canvasTabuleiro.height = alturaDaTela-50
 
 canvasJodadores.width = larguraDaTela
 canvasJodadores.height = alturaDaTela-50
-
-ctxJogadoes.fillStyle = 'rgba(255, 165, 0,0.2)'

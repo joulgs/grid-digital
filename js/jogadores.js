@@ -6,6 +6,11 @@ var jogadoresX = []
 var jogadoresY = []
 var jogadoresNome = []
 
+var normalHighlight = 'rgba(255, 165, 0,0.2)'
+var podeMoverHighlight = 'rgba(20, 255, 50,0.2)'
+
+ctxJogadoes.fillStyle = normalHighlight
+
 desenhaJogadores()
 canvasJodadores.addEventListener('click', pegaPosicaoDoClique, true);
 
@@ -32,9 +37,16 @@ function desenhaJogador(image, x, y, selecionado)
     play.src = image
     play.onload = function()
     {
-        ctxJogadoes.drawImage(play,tamanhoDoQuadrado*x,tamanhoDoQuadrado*y,tamanhoDoQuadrado,tamanhoDoQuadrado)
-        if(selecionado)
+        if(selecionado) {
+            if(podeMoveComMouse) {
+                ctxJogadoes.fillStyle = podeMoverHighlight
+            } else {
+                ctxJogadoes.fillStyle = normalHighlight
+            }
+
             ctxJogadoes.fillRect(tamanhoDoQuadrado*x,tamanhoDoQuadrado*y,tamanhoDoQuadrado,tamanhoDoQuadrado)
+        }
+        ctxJogadoes.drawImage(play,tamanhoDoQuadrado*x,tamanhoDoQuadrado*y,tamanhoDoQuadrado,tamanhoDoQuadrado)
     }
 }
 
@@ -142,7 +154,6 @@ function pegaPosicaoDoClique(evt){
     var posX = parseInt(evt.clientX/tamanhoDoQuadrado)
     var posY = parseInt(evt.clientY/tamanhoDoQuadrado)
     
-    console.clear();
     selecionaJogadorPorPosicao(posX,posY)
 }
 
