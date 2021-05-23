@@ -1,3 +1,9 @@
+var canvasTabuleiro = document.getElementById("tabuleiro"),
+ctxTabuleiro = canvasTabuleiro.getContext("2d")
+
+canvasTabuleiro.width = larguraDaTela
+canvasTabuleiro.height = alturaDaTela
+
 desenhaTabuleiro()
 
 function desenhaTabuleiro()

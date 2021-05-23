@@ -1,3 +1,9 @@
+var canvasJodadores = document.getElementById("jogadores"),
+ctxJogadoes = canvasJodadores.getContext("2d")
+
+canvasJodadores.width = larguraDaTela
+canvasJodadores.height = alturaDaTela
+
 var jogadorSelecionado = 0
 var podeMoveComMouse = false
 

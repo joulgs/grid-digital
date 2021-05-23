@@ -1,3 +1,9 @@
+var canvasMapa = document.getElementById("mapa"),
+ctxMapa = canvasMapa.getContext("2d")
+
+canvasMapa.width = larguraDaTela
+canvasMapa.height = alturaDaTela
+
 const socketMapa = new WebSocket('ws://localhost:9990/mapa');
 
 socketMapa.addEventListener('message', function (event) {

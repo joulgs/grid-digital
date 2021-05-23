@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>RPJOUL | PAINEL</title>
+
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -13,15 +15,14 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div id="areaDoMapa" class="col-9 p-0">
-                <div  style="width: 100%; height: 100%;">
-                    <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
-                    <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
-                    <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
-                </div>
+
+            <div id="areaDoMapa" class="col-9 p-0 m-0">
+                <canvas class="m-0" id="mapa" width="200" height="200"></canvas>
+                <canvas class="m-0" id="tabuleiro" width="200" height="200"></canvas>
+                <canvas class="m-0" id="jogadores" width="200" height="200"></canvas>
             </div>
+
             <div id="menu" class="col-3">
-                    
                 <div class="accordion accordion-flush" id="accordionMenuDoMestre">
                     
                     <div class="accordion-item">
@@ -124,18 +125,10 @@
                         </div>
                     </div>
                     
-                
                 </div>
-                   
-                    
             </div>
         </div>
     </div>
-            
-
-                
-
-    
 
     <script src="./js/main.js" ></script>
     <script src="./js/chat.js" ></script>
