@@ -23,6 +23,9 @@ final class MapaServer implements MessageComponentInterface
 
     public function onMessage(ConnectionInterface $from, $msg): void
     {
+        $mapa = json_decode($msg);
+        echo $mapa->imagem;
+        
         foreach ($this->clients as $client) {
             $client->send($msg);
         }

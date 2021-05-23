@@ -11,36 +11,34 @@ ctxMapa = canvasMapa.getContext("2d")
 canvasMapa.width = larguraDaTela
 canvasMapa.height = alturaDaTela
 
-const mapaObj = {
-    imagem: '',
-    x: 0,
-    y: 0,
-    altura: null,
-    largura: null,
-    posicao: PARA_CIMA
-};
-
-const evento = {
-    evento: '',
-    mapa: null
-};
+mapaObj = {}
 
 socketMapa.addEventListener('message', function (event) {
     const data = JSON.parse(event.data)
     console.log(data)
 
-    if(data.evento == 'desenhaMapa')
+    console.log('Evento disparado')
+    mapaObj = data.mapa
+
+    if( data.evento =='desenhaMapaPrimeiraVez')
     {
-        console.log('Evento disparado')
-        mapaObj = data
+        desenhaMapaPrimeiraVez()
+    }
+
+    if( data.evento =='desenhaMapa')
+    {
         desenhaMapa()
+    }
+
+    if( data.evento =='rotacionarMapa')
+    {
+        rotacionarMapa()
     }
 })
 
-desenhaMapaPrimeiraVez()
-
 function desenhaMapaPrimeiraVez()
 {
+    console.log('>> DESENHA MAPA PRIMEIRA VEZ')
     limparMapa()
     var image = new Image()
     image.src = mapaObj.imagem
@@ -50,13 +48,6 @@ function desenhaMapaPrimeiraVez()
         mapaObj.largura = this.width
         ctxMapa.drawImage(image,mapaObj.x,mapaObj.y)
     }
-
-     
-    evento.evento= 'desenhaMapaPrimeiraVez'
-    evento.mapa= mapaObj
-    
-
-    socketMapa.send(JSON.stringify(evento));
 }
 
 function desenhaMapa()
@@ -70,67 +61,12 @@ function desenhaMapa()
         ctxMapa.drawImage(image,mapaObj.x,mapaObj.y, mapaObj.largura, mapaObj.altura)
     }
 
-    evento.mapa= mapaObj
+    const evento = {
+        nome: 'desenhaMapa',
+        mapa: mapaObj,
+    };
 
     socketMapa.send(JSON.stringify(evento));
-}
-
-function mapaParaEsquerda() 
-{
-    limparMapa()
-    mapaObj.x -= 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}
-
-function mapaParaDireita() 
-{
-    limparMapa()
-    mapaObj.x += 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}
-
-function mapaParaCima() 
-{
-    limparMapa()
-    mapaObj.y -= 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}
-
-function mapaParaBaixo() 
-{
-    limparMapa()
-    mapaObj.y += 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}
-
-function mapaParaBaixo() 
-{
-    limparMapa()
-    mapaObj.y += 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}   
-
-function mapaMenosZoom()
-{
-    limparMapa()
-    mapaObj.altura -= (mapaObj.altura*0.1)
-    mapaObj.largura -= (mapaObj.largura*0.1)
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}
-
-function mapaMaisZoom()
-{
-    limparMapa()
-    mapaObj.altura += (mapaObj.altura*0.1)
-    mapaObj.largura += (mapaObj.largura*0.1)
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
 }
 
 function rotacionarMapa()
@@ -138,12 +74,14 @@ function rotacionarMapa()
     limparMapa()
     ctxMapa.rotate(90 * Math.PI / 180);
     limparMapa()
-    switch(mapaObj.posicao){
+    switch(mapaObj.posicao -1){
         case PARA_CIMA :
+            console.log('entrou222')    
             ctxMapa.translate(0, -mapaObj.altura)
             mapaObj.posicao = PARA_DIREITA
             break
         case PARA_DIREITA :
+            
             ctxMapa.translate(mapaObj.largura, -mapaObj.altura)
             mapaObj.posicao = PARA_BAIXO
             break
@@ -156,15 +94,8 @@ function rotacionarMapa()
             mapaObj.posicao = PARA_CIMA
             break
     }
-    evento.evento= 'rotacionarMapa'
-    desenhaMapa()
-}
-
-function mudarMapa()
-{
-    mapaObj.posicao = PARA_CIMA
-    mapaObj.imagem = document.getElementById("seletorDeMapas").value
-    desenhaMapaPrimeiraVez()
+    limparMapa()
+    desenhaMapa()   
 }
 
 function limparMapa()
