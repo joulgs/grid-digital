@@ -7,7 +7,7 @@ use SplObjectStorage;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 
-final class MapaServer implements MessageComponentInterface
+final class TabuleiroServer implements MessageComponentInterface
 {
     private $clients;
 
@@ -23,9 +23,6 @@ final class MapaServer implements MessageComponentInterface
 
     public function onMessage(ConnectionInterface $from, $msg): void
     {
-        //$mapa = json_decode($msg);
-        //echo $mapa->imagem;
-        
         foreach ($this->clients as $client) {
             $client->send($msg);
         }
