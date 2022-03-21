@@ -4,19 +4,19 @@ Este projeto nasceu como uma forma de praticar javascript com canvas, aplicados 
 This project was born as a way to practice javascript with canvas, applied in a personal passion of mine.
 
 ### Objetivos
-✔ Renderizar uma imagem de mapa no fundo;
-✔ Mover o mapa para todos os 4 lados;
-✔ Girar o mapa;
-✔ Adicionar e remover jogadores;
-✔ Renderizar o Token do jogador;
-✔ Mover o Token do jogador por teclado;
-✔ Mover o Token do Jogador com o mouse;
-❑ Girar Token do jogador;
-❑ Mostrar Movimentos possiveis do Jogador;
-❑ Mostrar Campo de Visão do Jogador;
-❑ Marcar quadrado como obstaculo/barreira;
-❑ Uma Tela de rolagem de dados animada;
-❑ ...
+- ✔ Renderizar uma imagem de mapa no fundo;
+- ✔ Mover o mapa para todos os 4 lados;
+- ✔ Girar o mapa;
+- ✔ Adicionar e remover jogadores;
+- ✔ Renderizar o Token do jogador;
+- ✔ Mover o Token do jogador por teclado;
+- ✔ Mover o Token do Jogador com o mouse;
+- Girar Token do jogador;
+- Mostrar Movimentos possiveis do Jogador;
+- Mostrar Campo de Visão do Jogador;
+- Marcar quadrado como obstaculo/barreira;
+- Uma Tela de rolagem de dados animada;
+- ...
 
 ### Ideias
 - Um Mapa de Campanha ( Paise ) e varios mapas de batalha
