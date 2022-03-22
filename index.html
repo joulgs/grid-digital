@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>RPJOUL | PAINEL</title>
+    <title>GD | Painel do Mestre</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./src/assets/css/style.css">
 
 </head>
 <body>
@@ -35,9 +35,9 @@
                             <div class="accordion-body">
 
                                 <select id="seletorDeMapas" name="fundo" class="form-select mb-2" onchange="mudarMapa()">
-                                    <option value="" selected disabled>Mapas...</option>
-                                    <option value="assets/fundo/01.jpg" >01</option>
-                                    <option value="assets/fundo/02.jpg">02</option>
+                                    <option value="" selected disabled>Selecione um mapa</option>
+                                    <option value="src/assets/fundo/01.jpg" >01</option>
+                                    <option value="src/assets/fundo/02.jpg">02</option>
                                 </select>
             
                                 <button class="btn btn-outline-primary mr-1 mb-1" onclick="mapaParaEsquerda()"><i class="far fa-caret-square-left"></i></button>
@@ -131,11 +131,11 @@
         </div>
     </div>
 
-    <script src="./js/main.js" ></script>
-    <script src="./js/chat.js" ></script>
-    <script src="./js/mapa.js" ></script>
-    <script src="./js/tabuleiro.js" ></script>
-    <script src="./js/jogadores.js" ></script>
+    <script src="./src/js/main.js" ></script>
+    <script src="./src/js/chat.js" ></script>
+    <script src="./src/js/mapa.js" ></script>
+    <script src="./src/js/tabuleiro.js" ></script>
+    <script src="./src/js/jogadores.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
