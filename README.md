@@ -1,7 +1,25 @@
 # Grid digital para RPG
-Este projeto nasceu como uma forma de praticar javascript com canvas, aplicados numa paixão pessoal minha.
+Projeto para mesas de RPG presenciais. Ele conta com uma tela de gerenciamento do grid e uma tela onde os jogadores podem ver as mudanças no grid.
 
-This project was born as a way to practice javascript with canvas, applied in a personal passion of mine.
+## Como Usar
+
+Primeiro Clone o projeto, acesse a pasta e instale as dependencias:
+
+```
+git clone https://github.com/joulgs/grid-digital.git
+
+cd grid-digital
+
+composer install
+```
+
+Inicie o servidor:
+
+```
+./server.php
+```
+
+Agora voce pode abrir o **painel** (index.html) e o **grid** (mapa.html), tudo que o mestre fazer no painel será replicado no grid.
 
 ### Objetivos
 - ✔ Renderizar uma imagem de mapa no fundo;
