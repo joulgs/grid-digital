@@ -16,13 +16,19 @@ This project was born as a way to practice javascript with canvas, applied in a 
 - Mostrar Campo de Visão do Jogador;
 - Marcar quadrado como obstaculo/barreira;
 - Uma Tela de rolagem de dados animada;
-- ...
+- Opção para trocar a cor do grid;
+- Opção para mudar a opacidade do grid;
+- Opção para trocar para grid hexagonal;
+- Opção para adicionar mobs;
 
 ### Ideias
 - Um Mapa de Campanha ( Paise ) e varios mapas de batalha
 - No Mapa de Campanha voce pode colocar marcadores que dão acesso aos mapas de Batalha, OU mapas de cidades
 - Nos Mapas de Cidades Voce pode colocar os marcadores que dão acesso a mapas de casas ou dungeons etc....
-
+- Gerenciar HP dos mobs no mapa?
+- Criador de masmorra;
+- Criador de mapas simples com tileset;
+- QRCode para players sincronizarem seus personagens com a partida;
 
 ###### Algumas fontes que inspirarão o projeto:
  - [Noções gerais de canvas](https://diveintohtml5.com.br/canvas.html)
