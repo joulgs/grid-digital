@@ -78,7 +78,20 @@ function desenhaMapa()
 function mapaParaEsquerda() 
 {
     limparMapa()
-    mapaObj.x -= 10
+    switch(mapaObj.posicao){
+        case PARA_CIMA :
+            mapaObj.x -= 10
+            break
+        case PARA_DIREITA :
+            mapaObj.y += 10
+            break
+        case PARA_BAIXO :
+            mapaObj.x += 10
+            break
+        case PARA_ESQUERDA :
+            mapaObj.y -= 10
+            break
+    }
     evento.evento= 'desenhaMapa'
     desenhaMapa()
 }
@@ -86,7 +99,20 @@ function mapaParaEsquerda()
 function mapaParaDireita() 
 {
     limparMapa()
-    mapaObj.x += 10
+    switch(mapaObj.posicao){
+        case PARA_CIMA :
+            mapaObj.x += 10
+            break
+        case PARA_DIREITA :
+            mapaObj.y -= 10
+            break
+        case PARA_BAIXO :
+            mapaObj.x -= 10
+            break
+        case PARA_ESQUERDA :
+            mapaObj.y += 10
+            break
+    }
     evento.evento= 'desenhaMapa'
     desenhaMapa()
 }
@@ -94,26 +120,45 @@ function mapaParaDireita()
 function mapaParaCima() 
 {
     limparMapa()
-    mapaObj.y -= 10
+    switch(mapaObj.posicao){
+        case PARA_CIMA :
+            mapaObj.y -= 10
+            break
+        case PARA_DIREITA :
+            mapaObj.x -= 10
+            break
+        case PARA_BAIXO :
+            mapaObj.y += 10
+            break
+        case PARA_ESQUERDA :
+            mapaObj.x += 10
+            break
+    }
     evento.evento= 'desenhaMapa'
     desenhaMapa()
 }
 
 function mapaParaBaixo() 
 {
+    console.log('mapa.js > mapaParaBaixo()')
     limparMapa()
-    mapaObj.y += 10
+    switch(mapaObj.posicao){
+        case PARA_CIMA :
+            mapaObj.y += 10
+            break
+        case PARA_DIREITA :
+            mapaObj.x += 10
+            break
+        case PARA_BAIXO :
+            mapaObj.y -= 10
+            break
+        case PARA_ESQUERDA :
+            mapaObj.x -= 10
+            break
+    }
     evento.evento= 'desenhaMapa'
     desenhaMapa()
 }
-
-function mapaParaBaixo() 
-{
-    limparMapa()
-    mapaObj.y += 10
-    evento.evento= 'desenhaMapa'
-    desenhaMapa()
-}   
 
 function mapaMenosZoom()
 {
@@ -158,6 +203,7 @@ function rotacionarMapa()
     }
     evento.evento= 'rotacionarMapa'
     desenhaMapa()
+    console.log(mapaObj)
 }
 
 function mudarMapa()
