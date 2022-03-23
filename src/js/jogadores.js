@@ -104,7 +104,7 @@ function novoJogador()
     document.getElementById("checkPodeMoverComMouse").checked = false
 
     var nome = prompt('NOME:')
-    jogadores.push("assets/totens/01.png")
+    jogadores.push("src/assets/totens/01.png")
     jogadoresX.push(0)
     jogadoresY.push(0)
     jogadoresNome.push(nome)
