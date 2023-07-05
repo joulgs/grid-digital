@@ -1,6 +1,8 @@
 # Grid digital para RPG
 Projeto para mesas de RPG presenciais. Ele conta com uma tela de gerenciamento do grid e uma tela onde os jogadores podem ver as mudanças no grid.
 
+![imagem do projeto](./screen.png)
+
 ## Como Usar
 
 Primeiro Clone o projeto, acesse a pasta e instale as dependencias:
@@ -16,8 +18,10 @@ composer install
 Inicie o servidor:
 
 ```
-./server.php
+php ./server.php
 ```
+
+
 
 Agora voce pode abrir o **painel** (index.html) e o **grid** (mapa.html), tudo que o mestre fazer no painel será replicado no grid.
 
